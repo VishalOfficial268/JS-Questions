@@ -1,6 +1,6 @@
 // console.log("array questions:");
 // left question - 18, 21, 22, 
-// postpone - 28, 29, 31, 38,
+// postpone - 28, 29, 31, 38,   
 
 /* Q1:  What is the output of the following code? */
 // const arrayOfOddNumbers = [1, 3, 5];
