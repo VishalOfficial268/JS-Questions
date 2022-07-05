@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "array": "nodemon array.js"
+    "array": "nodemon array.js",
+    "recursion": "nodemon recursion.js"
   },
   "repository": {
     "type": "git",
