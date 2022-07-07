@@ -8,7 +8,8 @@
     "array": "nodemon array.js",
     "object": "nodemon object.js",
     "recursion": "nodemon recursion.js",
-    "function": "nodemon function.js"
+    "function": "nodemon function.js",
+    "promise": "nodemon promise.js"
   },
   "repository": {
     "type": "git",
