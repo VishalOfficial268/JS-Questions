@@ -749,12 +749,15 @@ console.log(difference([1, 2, 3], [100, 2, 1, 10]));
 
 //sort the array by assending and decending order:
 let arr = [2, 4, 1, 0, 8, 99, 33, -6, 7, 5]
-for (let i = 0; i < arr.length; i++) {
-  if (arr[i] > arr[i + 1]) {
-    let temp = arr[i];
-    arr[i] = arr[i + 1];
-    arr[i + 1] = temp
-    i--;
+function shortArray() {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > arr[i + 1]) {
+      let temp = arr[i];
+      arr[i] = arr[i + 1];
+      arr[i + 1] = temp
+      i = -1;
+    }
   }
+  return arr;
 }
-return arr;
+console.log(shortArray())
