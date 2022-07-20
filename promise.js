@@ -172,64 +172,194 @@
 
 /** Q7: What will be the output? */
 
-function job(state) {
-    return new Promise(function (resolve, reject) {
-        if (state) {
-            resolve('success');
-        } else {
-            reject('error');
-        }
-    });
-}
+// function job(state) {
+//     return new Promise(function (resolve, reject) {
+//         if (state) {
+//             resolve('success');
+//         } else {
+//             reject('error');
+//         }
+//     });
+// }
 
-let promise = job(true);
+// let promise = job(true);
 
-promise
+// promise
 
-    .then(function (data) {
-        console.log(data); //success
-        return job(true);
+//     .then(function (data) {
+//         console.log(data); //success
+//         return job(true);
+//     })
+
+//     .then(function (data) {
+//         if (data !== 'victory') {
+//             throw 'Defeat';  //Defeate
+//         }
+//         return job(true);
+//     })
+
+//     .then(function (data) {
+//         console.log(data); //success
+//     })
+
+//     .catch(function (error) {
+//         console.log(error);
+
+//         return job(false);
+//     })
+
+//     .then(function (data) {
+//         console.log(data); //success
+
+//         return job(true);
+//     })
+
+//     .catch(function (error) {
+//         console.log(error);
+
+//         return 'Error caught';
+//     })
+
+//     .then(function (data) {
+//         console.log(data); //success
+
+//         return new Error('test');
+//     })
+
+//     .then(function (data) {
+//         console.log('Success:', data.message); //success
+//     })
+
+//     .catch(function (data) {
+//         console.log('Error:', data.message);
+//     })
+
+
+// NEW QUESTIONS:
+//Q1: what will be the output:
+setTimeout(() => {
+    console.log("1");
+}, 0);
+
+new Promise((resolve, reject) => {
+    console.log("3");
+    setTimeout(() => {
+        resolve("4")
+    }, 10 * 1000);
+}).then((res) => {
+    console.log(res)
+})
+
+setTimeout(() => {
+    console.log('5');
+}, 1000);
+// 3 -> 1 -> 5 -> 4
+
+
+//Q2: what will be the output:
+const promise1 = new Promise((resolve, reject) => {
+    console.log(1);
+    resolve('success')
+});
+promise1.then(() => {
+    console.log(3);
+});
+console.log(4);
+//Output: 1 -> 4 -> 3  //because of asynchronus behaviors:
+
+
+
+//Q3: what will be the output:
+const promise2 = new Promise((resolve, reject) => {
+    console.log(1);
+});
+promise2.then(() => {
+    console.log(3);
+});
+console.log(4);
+//Output: 1 -> 4 //3 will not because we haven't resolved:
+
+
+//Q4: what will be the output:
+const promise3 = new Promise((resolve, reject) => {
+    console.log(1)
+    resolve('resolve1')
+})
+const promise4 = promise3.then(res => {
+    console.log(res)
+})
+console.log('promise3:', promise3);
+console.log('promise4:', promise4);
+//Output: 1 "promise3:" [object Promise] "promise4:" [object Promise] "resolve1"
+
+
+//Q5: what will be the output:
+const fn = () => (new Promise((resolve, reject) => {
+    console.log(1)
+    resolve('success')
+}));
+fn().then(res => {
+    console.log(res)
+});
+console.log(2)
+//Output: 1 -> 2 -> success
+
+
+//Q6: what will be the output:
+console.log('start');
+setTimeout(() => {
+    console.log('setTimeout')
+})
+Promise.resolve().then(() => {
+    console.log('resolve')
+})
+console.log('end');
+//Output: start -> end -> resolve -> setTimeout
+
+
+//Q7: what will be the output:
+const promise = new Promise((resolve, reject) => {
+    console.log(1);
+    setTimeout(() => {
+        console.log("timerStart");
+        resolve("success");
+        console.log("timerEnd");
+    }, 0);
+    console.log(2);
+});
+promise.then((res) => {
+    console.log(res);
+});
+console.log(4);
+//Output: 1 -> 2 -> 4 -> timerStart -> timerEnd -> success
+
+
+
+//Q8:  what will be the output:
+const timer1 = setTimeout(() => {
+    console.log('timer1');
+    const promise1 = Promise.resolve().then(() => {
+        console.log('promise1') //creates a micro tash and it precendence is high
     })
+}, 0)
+const timer2 = setTimeout(() => {
+    console.log('timer2')
+}, 0)
+console.log('start')
+//Output: start -> timer1 -> promise1 -> timer2
 
-    .then(function (data) {
-        if (data !== 'victory') {
-            throw 'Defeat';  //Defeate
-        }
-        return job(true);
+//Q9:  what will be the output:
+const promise10 = Promise.resolve().then(() => {
+    console.log('promise10');
+    const timer5 = setTimeout(() => {
+        console.log('timer5')
+    }, 0)
+});
+const timer8 = setTimeout(() => {
+    console.log('timer8')
+    const promise20 = Promise.resolve().then(() => {
+        console.log('promise20')
     })
-
-    .then(function (data) {
-        console.log(data); //success
-    })
-
-    .catch(function (error) {
-        console.log(error);
-
-        return job(false);
-    })
-
-    .then(function (data) {
-        console.log(data); //success
-
-        return job(true);
-    })
-
-    .catch(function (error) {
-        console.log(error);
-
-        return 'Error caught';
-    })
-
-    .then(function (data) {
-        console.log(data); //success
-
-        return new Error('test');
-    })
-
-    .then(function (data) {
-        console.log('Success:', data.message); //success
-    })
-
-    .catch(function (data) {
-        console.log('Error:', data.message);
-    });
+}, 0)
+console.log('start');
+//Output: start -> promise10 -> promise20 -> timer5

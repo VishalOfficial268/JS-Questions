@@ -10,7 +10,9 @@
     "recursion": "nodemon recursion.js",
     "function": "nodemon function.js",
     "promise": "nodemon promise.js",
-    "call-apply-bind": "nodemon call-apply-bind.js"
+    "call-apply-bind": "nodemon call-apply-bind.js",
+    "testjs": "nodemon test.js",
+    "array_insert": "nodemon array_insert.js"
   },
   "repository": {
     "type": "git",

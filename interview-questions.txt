@@ -1,0 +1,6 @@
+Interview Question - 
+1. Suppose we have the data huge data and the user wants the  reports to genrate and the reports is to be taken as more than 30 miutes and uer clicked on the genearting the  reports data then without stuckking over the one page how will the data they get (also if he closed the machine and then will he get)
+
+2. There is one functions and the db queries are there and each db query takes 30 seconds by how you can reduce the time and more efficient.
+
+3. If you have an api and it takes the 2000 milli-seconds and how you can optimise the API so that you can reduce the time of the API.

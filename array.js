@@ -1,6 +1,5 @@
 // console.log("array questions:");
-// left question - 18, 21, 22, 
-// postpone - 28, 29, 31, 38,   
+
 
 /* Q1:  What is the output of the following code? */
 // const arrayOfOddNumbers = [1, 3, 5];
@@ -748,16 +747,109 @@ console.log(difference([1, 2, 3], [100, 2, 1, 10]));
 
 
 //sort the array by assending and decending order:
-let arr = [2, 4, 1, 0, 8, 99, 33, -6, 7, 5]
-function shortArray() {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > arr[i + 1]) {
-      let temp = arr[i];
-      arr[i] = arr[i + 1];
-      arr[i + 1] = temp
-      i = -1;
-    }
-  }
-  return arr;
-}
-console.log(shortArray())
+// let arr = [2, 4, 1, 0, 8, 99, 33, -6, 7, 5]
+// function shortArray() {
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] > arr[i + 1]) {
+//       let temp = arr[i];
+//       arr[i] = arr[i + 1];
+//       arr[i + 1] = temp
+//       i = -1;
+//     }
+//   }
+//   return arr;
+// }
+// console.log(shortArray())
+
+
+/** Write a function to sort and find the missing number in the array */
+// let arr22 = [2, 4, 1, 0, 8, 99, 33, -6, 7, 5];
+// function sortAndFindMissingNumber(arr22) {
+//   let n = arr22.length;
+//   let missingNumber;
+//   let total = Math.floor((n + 1) * (n + 2) / 2);
+//   for (let i = 0; i < n; i++) {
+//     total -= arr22[i];
+//   }
+//   missingNumber = total
+//   return missingNumber;
+// }
+// console.log(sortAndFindMissingNumber(arr22));
+
+
+
+//5: how to get the output as "first", "second" & "third"
+// console.log("first");
+// abc();
+// console.log("third");
+// function abc() {
+//     setTimeout(function () {
+//         console.log("second");
+//     }, 0);
+// }
+
+
+
+//6: what will be the output:
+// var x = 0;
+// function doSomething(itr, cb) {
+//     var y = 0;
+//     setTimeout(() => {
+//         cb(null, x + y);
+//     }, y);
+
+//     for (var i = 0; i < itr; i += 1) {
+//         y += 1
+//     }
+// }
+// doSomething(100, (err, result) => console.log(result));
+
+
+
+
+//7: Merge two array and the output should be a sorted array
+
+// let arr1 = [1, 7, 9, 10];
+// let arr2 = [2, 4, 6, 8];
+
+// let fullArr = arr1.concat(arr2);
+// function sortArr(fullArr) {
+//     for (let i = 0; i < fullArr.length; i++) {
+//         if (fullArr[i] > fullArr[i + 1]) {
+//             let temp = fullArr[i];
+//             fullArr[i] = fullArr[i + 1];
+//             fullArr[i + 1] = temp;
+//             i = -1;
+//         }
+//     }
+//     return fullArr;
+// }
+// console.log(sortArr(fullArr))
+
+
+
+//8: In an array of N natural numbers one number is missing, find that missing number.
+// const arr = [1, 3, 6, 7, 4, 8, 2, 9];
+// let n = arr.length;
+// let total = (n + 1) * (n + 2) / 2
+// let result;
+
+// for (let i = 0; i < n; i++) {
+//   total = total - arr[i];
+//   result = total;
+// }
+// console.log(result);
+
+
+
+
+
+// const merge = (first, second) => {
+//   let index = first.length - 1;
+//   for (let i = 0; i < second.length; i++) {
+//     first[index + i + 1] = second[i];
+//   }
+//   return first;
+// }
+
+// console.log(merge([1, 2, 3, 4, 5], [6, 7, 8, 9, 10]))
