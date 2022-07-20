@@ -1,86 +1,88 @@
-// console.log("array questions:");
 
 
 /* Q1:  What is the output of the following code? */
-// const arrayOfOddNumbers = [1, 3, 5];
-// arrayOfOddNumbers[100] = 199;
-// console.log(arrayOfOddNumbers.length); // output : 101
+const arr1 = [1, 3, 5];
+arr1[100] = 199;
+//console.log(arr.length); // output : 101
 
 
 
 /** Q2: How can you double elements of an array using reduce? Please note that you cannot create additional variables. */
-// const arrayOfNumbers = [1, 2, 3, 4];
-// const newArray = arrayOfNumbers.reduce((accumulator, currentValue, index, array) => array[index] = array[index] * 2);
+const arr2 = [1, 2, 3, 4];
+const newArray = arr2.reduce((accumulator, currentValue, index, array) => array[index] = array[index] * 2);
 // console.log(newArray)
 
 
 
 /** Q3: What is the output of the following code snippet? */
 
-// let arrayOfLetters = ['a', 'b', 'c', 'd', 'e', 'f'];
-// const anotherArrayOfLetters = arrayOfLetters;
-// arrayOfLetters = [];
+let arrayOfLetters = ['a', 'b', 'c', 'd', 'e', 'f'];
+const anotherArrayOfLetters = arrayOfLetters;
+arrayOfLetters = [];
 // console.log(anotherArrayOfLetters);
 
 
 
 /** Q4: How could you print unique values from an array? */
-// const arrOfNum = [1, 2, 2, 4, 5, 6, 6];
-// const set = new Set(arrOfNum);
+const arrOfNum = [1, 2, 3, 2, 4, 5, 6, 6];
+const set = new Set(arrOfNum);
 // console.log(set);
 
 /** Q5: Define a function called cleanNames that accepts an array of strings containing additional space characters at the beginning and end. The cleanNames() function should use the array map method to return a new array full of trimmed names. For example: cleanNames([" avengers", "   captain_america", "ironman   ", " black panther   "])
-should give
-["avengers", "captain_america", "ironman", "black panther"] */
+should give*/
+const marvelCharectors = ["avengers ", "captain_america  ", "  ironman", " black panther"];
 
-// function cleanNames(arr) {
-//     arr.map((el) => el.trim())
-// }
+function cleanNames(arr) {
+  return arr.map((ch) => ch.trim());
+}
+// console.log(cleanNames(marvelCharectors));
 
 
 /** Q6: Write a function that converts an array of values from miles to kilometres using the map method. In the end, add the kilometres up in a new variable called "totalDistanceInKilometers" and return this variable. */
-
-// function convertMileToKilometer(arr) {
-//     let kilometers = arr.map((mile) => mile * 1.60);
-//     let totalDistanceInKilometers = 0;
-//     for (let km of kilometers) {
-//         totalDistanceInKilometers += km;
-//     }
-//     return totalDistanceInKilometers;
-// }
+const miles = [1, 2, 3, 4];
+function convertMileToKilometer(arr) {
+  let kilometers = arr.map((mile) => mile * 1.60);
+  let totalDistanceInKilometers = 0;
+  for (let km of kilometers) {
+    totalDistanceInKilometers += km;
+  }
+  return totalDistanceInKilometers;
+}
+// console.log(convertMileToKilometer(miles));
 
 
 /** Q7: Q3 Square and sum the array elements using the arrow function and then find the average of the array. */
-// let nums = [25, 45, 55, 77, 88, 99];
-// let avrageOfArray = (arr) => {
-//     let sqrt = arr.map((sq) => Math.pow(sq, 2));
-//     let sumOfSq = arr.reduce((acc, curr, index, array) => acc + curr)
-//     return sumOfSq / sqrt.length;
-// }
+let nums = [25, 45, 55, 77, 88, 99];
+let avrageOfArray = (arr) => {
+  let sqrt = arr.map((sq) => Math.pow(sq, 2));
+  let sumOfSq = arr.reduce((acc, curr, index, array) => acc + curr)
+  return sumOfSq / sqrt.length;
+}
 // console.log(avrageOfArray(nums));
 
 /** Q8: Create a new array using the map function whose each element is equal to the original element plus 4. */
 
-// function elementWith4pluse(arr) {
-//     let fourPlusElement = arr.map((el) => el + 4);
-//     return fourPlusElement;
-// }
+function elementWith4pluse(arr) {
+  let fourPlusElement = arr.map((el) => el + 4);
+  return fourPlusElement;
+}
 // console.log(elementWith4pluse([1, 2, 3]));
 
 
-/** Q9: From the array of numbers, choose even double even numbers and compute the sum using Array's filter, map and reduce methods. */
+/** Q9: From the array of numbers, choose even numbers and double the even numbers and compute the sum using Array's filter, map and reduce methods. */
 
-// function res(arr) {
-//     return arr.filter((num) => num % 2 === 0).map((ev) => ev * ev).reduce((acc, curr, index, array) => acc + curr)
-// }
+function finalSum(arr) {
+  return arr.filter((num) => num % 2 === 0).map((ev) => ev * ev).reduce((acc, curr, index, array) => acc + curr)
+}
+// console.log(finalSum([1, 2, 3, 4, 5, 6]))
 
 /** Q10: Create a new array whose elements is in uppercase of words present in the original array.*/
 
-// let strings = ["avengers", "captain america", "ironman", "black panther"]; //given
-// function upperCase(arr) {
-//     return arr.map((el) => el.toUpperCase())
-// }
-// console.log(upperCase(strings));
+let marvelCh = ["avengers", "captain america", "ironman", "black panther"]; //given
+function upperCase(arr) {
+  return arr.map((el) => el.toUpperCase())
+}
+// console.log(upperCase(marvelCh));
 
 /** Q11: Use the .map() method on the heros array to return a new array.
  * The new array should rename the 'name' key to 'hero'.
